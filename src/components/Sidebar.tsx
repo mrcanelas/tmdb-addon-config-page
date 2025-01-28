@@ -1,14 +1,17 @@
 import { Home, Grid, Network, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLocation, Link } from "react-router-dom";
 
 const menuItems = [
-  { icon: Home, label: "Home", active: true },
-  { icon: Grid, label: "Catalogs" },
-  { icon: Network, label: "Integrations" },
-  { icon: Settings, label: "Others" },
+  { icon: Home, label: "Home", path: "/" },
+  { icon: Grid, label: "Catalogs", path: "/catalogs" },
+  { icon: Network, label: "Integrations", path: "/integrations" },
+  { icon: Settings, label: "Others", path: "/others" },
 ];
 
 export function Sidebar() {
+  const location = useLocation();
+
   return (
     <div className="w-[240px] bg-sidebar min-h-screen p-6 flex flex-col">
       <div className="flex items-center gap-2 mb-12">
@@ -23,16 +26,16 @@ export function Sidebar() {
         <ul className="space-y-2">
           {menuItems.map((item) => (
             <li key={item.label}>
-              <a
-                href="#"
+              <Link
+                to={item.path}
                 className={cn(
                   "flex items-center gap-3 px-4 py-2 rounded-lg text-sidebar-foreground/60 hover:bg-white hover:text-sidebar-foreground transition-colors",
-                  item.active && "bg-white text-sidebar-foreground"
+                  location.pathname === item.path && "bg-white text-sidebar-foreground"
                 )}
               >
                 <item.icon className="w-5 h-5" />
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

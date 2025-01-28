@@ -3,10 +3,25 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Home from "./pages/Home";
+import Catalogs from "./pages/Catalogs";
+import Integrations from "./pages/Integrations";
+import Others from "./pages/Others";
 import NotFound from "./pages/NotFound";
+import { Sidebar } from "./components/Sidebar";
+import { Header } from "./components/Header";
 
 const queryClient = new QueryClient();
+
+const Layout = ({ children }: { children: React.ReactNode }) => (
+  <div className="flex min-h-screen bg-gray-50">
+    <Sidebar />
+    <div className="flex-1">
+      <Header />
+      {children}
+    </div>
+  </div>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -15,7 +30,10 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Layout><Home /></Layout>} />
+          <Route path="/catalogs" element={<Layout><Catalogs /></Layout>} />
+          <Route path="/integrations" element={<Layout><Integrations /></Layout>} />
+          <Route path="/others" element={<Layout><Others /></Layout>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
