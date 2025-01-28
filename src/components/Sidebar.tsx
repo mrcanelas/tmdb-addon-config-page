@@ -1,19 +1,22 @@
-import { LayoutDashboard, Star, FileText, ShoppingBag } from "lucide-react";
+import { Home, Grid, Network, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Dashboard", active: true },
-  { icon: Star, label: "Reviews" },
-  { icon: FileText, label: "Requests" },
-  { icon: ShoppingBag, label: "Marketplace" },
+  { icon: Home, label: "Home", active: true },
+  { icon: Grid, label: "Catalogs" },
+  { icon: Network, label: "Integrations" },
+  { icon: Settings, label: "Others" },
 ];
 
 export function Sidebar() {
   return (
     <div className="w-[240px] bg-sidebar min-h-screen p-6 flex flex-col">
       <div className="flex items-center gap-2 mb-12">
-        <img src="/lovable-uploads/bc903c2f-4a8c-4d31-8c08-9ea4492ddba6.png" alt="Logo" className="w-8 h-8" />
-        <span className="font-semibold text-lg">Satisfaction</span>
+        <img 
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" 
+          alt="TMDB Logo" 
+          className="h-8 w-auto"
+        />
       </div>
       
       <nav className="flex-1">
