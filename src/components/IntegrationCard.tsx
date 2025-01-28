@@ -14,7 +14,22 @@ interface IntegrationCardProps {
   description: string;
 }
 
-export function IntegrationCard({ name, icon, description }: IntegrationCardProps) {
+/**
+ * A reusable component for displaying an integration card that shows the
+ * integration's name, icon, and description. When clicked, it opens a dialog
+ * that displays configuration options for the integration.
+ *
+ * @param {Object} props
+ * @prop {string} name - The name of the integration.
+ * @prop {string} icon - The URL of the icon for the integration.
+ * @prop {string} description - A short description of the integration.
+ * @returns {ReactElement} A React element representing the integration card.
+ */
+export function IntegrationCard({
+  name,
+  icon,
+  description,
+}: IntegrationCardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -23,24 +38,27 @@ export function IntegrationCard({ name, icon, description }: IntegrationCardProp
             <img src={icon} alt={name} className="w-12 h-12 mb-4" />
             <h3 className="font-semibold mb-2">{name}</h3>
             <p className="text-sm text-gray-500 mb-4">{description}</p>
-            <Button variant="ghost" className="text-primary hover:text-primary/80 font-medium">
+            <Button
+              variant="ghost"
+              className="text-primary hover:text-primary/80 font-medium"
+            >
               Setup
             </Button>
           </div>
         </div>
       </DialogTrigger>
-      
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <img src={icon} alt={name} className="w-6 h-6" />
+
+      <DialogContent className="sm:max-w-[50%] sm:min-h-[75%]">
+        <DialogHeader className="flex flex-col items-center justify-center">
+          <img src={icon} alt={name} className="w-32 h-32 mb-4" />
+          <DialogTitle className="text-lg font-semibold">
             {name} Configuration
           </DialogTitle>
           <DialogDescription>
             Configure your {name} integration settings below.
           </DialogDescription>
         </DialogHeader>
-        
+
         <div className="grid gap-4 py-4">
           {name === "Zapier" ? (
             <div className="grid gap-2">
@@ -69,9 +87,7 @@ export function IntegrationCard({ name, icon, description }: IntegrationCardProp
           <Button variant="outline" type="button">
             Cancel
           </Button>
-          <Button type="submit">
-            Save Changes
-          </Button>
+          <Button type="submit">Save Changes</Button>
         </div>
       </DialogContent>
     </Dialog>
