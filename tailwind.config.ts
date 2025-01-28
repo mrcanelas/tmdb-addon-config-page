@@ -29,8 +29,9 @@ export default {
           foreground: "#FFFFFF",
         },
         sidebar: {
-          DEFAULT: "#F8F8F8",
-          foreground: "#333333",
+          DEFAULT: "#0d253f",
+          foreground: "#FFFFFF",
+          accent: "#1a4b8c",
         },
         card: {
           DEFAULT: "#FFFFFF",

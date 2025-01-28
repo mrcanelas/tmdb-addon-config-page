@@ -29,8 +29,8 @@ export function Sidebar() {
               <Link
                 to={item.path}
                 className={cn(
-                  "flex items-center gap-3 px-4 py-2 rounded-lg text-sidebar-foreground/60 hover:bg-white hover:text-sidebar-foreground transition-colors",
-                  location.pathname === item.path && "bg-white text-sidebar-foreground"
+                  "flex items-center gap-3 px-4 py-2 rounded-lg text-sidebar-foreground/60 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors",
+                  location.pathname === item.path && "bg-sidebar-accent text-sidebar-foreground"
                 )}
               >
                 <item.icon className="w-5 h-5" />
