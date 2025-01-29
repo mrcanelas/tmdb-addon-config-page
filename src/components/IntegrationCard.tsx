@@ -7,6 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Card } from "./ui/card";
 
 interface IntegrationCardProps {
   name: string;
@@ -18,8 +19,8 @@ export function IntegrationCard({ name, icon, description }: IntegrationCardProp
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-white rounded-xl p-4 sm:p-6 shadow-card hover:shadow-lg transition-shadow cursor-pointer">
-          <div className="flex flex-col items-center text-center">
+        <Card className="p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer">
+        <div className="flex flex-col items-center text-center">
             <img src={icon} alt={name} className="w-10 h-10 sm:w-12 sm:h-12 mb-3 sm:mb-4" />
             <h3 className="font-semibold mb-1.5 sm:mb-2 text-base sm:text-lg">{name}</h3>
             <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">{description}</p>
@@ -30,7 +31,7 @@ export function IntegrationCard({ name, icon, description }: IntegrationCardProp
               Setup
             </Button>
           </div>
-        </div>
+        </Card>
       </DialogTrigger>
       
       <DialogContent className="w-[95%] max-w-[425px] p-4 sm:p-6">

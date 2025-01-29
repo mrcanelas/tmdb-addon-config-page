@@ -1,3 +1,4 @@
+import { Card } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 
@@ -15,36 +16,46 @@ const Others = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="flex flex-row items-center justify-between bg-white rounded-xl p-4 sm:p-6 shadow-card hover:shadow-lg transition-shadow">
+        <Card className="flex flex-row items-center justify-between p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer">
           <div className="space-y-0.5">
             <h1 className="text-sm font-semibold mb-1">Enable adult content</h1>
-            <p className="text-gray-500 text-sm">Receive emails about new products, features, and more.</p>
+            <p className="text-gray-500 text-sm">
+              Receive emails about new products, features, and more.
+            </p>
           </div>
           <Switch
             checked={adultContent}
             onCheckedChange={() => setAdultContent(!adultContent)}
           />
-        </div>
-        <div className="flex flex-row items-center justify-between bg-white rounded-xl p-4 sm:p-6 shadow-card hover:shadow-lg transition-shadow">
+        </Card>
+        <Card className="flex flex-row items-center justify-between p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer">
           <div className="space-y-0.5">
-            <h1 className="text-sm font-semibold mb-1">Provide metadata for IMDBId</h1>
-            <p className="text-gray-500 text-sm">Receive emails about new products, features, and more.</p>
+            <h1 className="text-sm font-semibold mb-1">
+              Provide metadata for IMDBId
+            </h1>
+            <p className="text-gray-500 text-sm">
+              Receive emails about new products, features, and more.
+            </p>
           </div>
           <Switch
             checked={provideImdbId}
             onCheckedChange={() => setProvideImdbId(!provideImdbId)}
           />
-        </div>
-        <div className="flex flex-row items-center justify-between bg-white rounded-xl p-4 sm:p-6 shadow-card hover:shadow-lg transition-shadow">
+        </Card>
+        <Card className="flex flex-row items-center justify-between p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer">
           <div className="space-y-0.5">
-            <h1 className="text-sm font-semibold mb-1">Use TMDB prefix in catalogs</h1>
-            <p className="text-gray-500 text-sm">Receive emails about new products, features, and more.</p>
+            <h1 className="text-sm font-semibold mb-1">
+              Use TMDB prefix in catalogs
+            </h1>
+            <p className="text-gray-500 text-sm">
+              Receive emails about new products, features, and more.
+            </p>
           </div>
           <Switch
             checked={tmdbPrefix}
             onCheckedChange={() => setTmdbPrefix(!tmdbPrefix)}
           />
-        </div>
+        </Card>
       </div>
     </main>
   );

@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export function Header({ isOpen, toggleSidebar }: HeaderProps) {
   return (
-    <header className="flex justify-between items-center p-6 border-b">
+    <header className="bg-white flex justify-between items-center p-6 border-b">
       <div className="flex items-center gap-4">
         <button
           onClick={toggleSidebar}

@@ -22,7 +22,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gray-100">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="flex-1">
         <Header isOpen={isOpen} toggleSidebar={toggleSidebar} />
