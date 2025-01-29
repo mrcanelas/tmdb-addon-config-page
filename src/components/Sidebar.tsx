@@ -24,7 +24,7 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed inset-y-0 left-0 z-40 bg-[#0d253f] transform transition-transform duration-300 ease-in-out md:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 bg-sidebar transform transition-transform duration-300 ease-in-out md:translate-x-0",
           isOpen ? "translate-x-0" : "-translate-x-full",
           "md:relative md:transform-none"
         )}
@@ -58,7 +58,7 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
             </ul>
           </nav>
           <div className="p-6 grid place-items-center">
-            <button className="w-full mb-3 bg-[#01b4e4] text-white rounded-lg py-2.5 px-4 hover:bg-[#01b4e4]/90 transition-colors">
+            <button className="w-full mb-3 bg-primary text-white rounded-lg py-2.5 px-4 hover:bg-primary/90 transition-colors">
               Install
             </button>
             <KoFiDialog

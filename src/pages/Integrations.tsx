@@ -1,4 +1,5 @@
 import { IntegrationCard } from "@/components/IntegrationCard";
+import { Separator } from "@/components/ui/separator";
 
 const integrations = [
   {
@@ -25,10 +26,12 @@ const integrations = [
 
 const Integrations = () => {
   return (
-    <main className="p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-semibold">Integrations</h1>
+    <main className="px-12 py-6">
+      <div className="flex flex-col">
+          <h1 className="text-xl font-semibold mb-1">Addon Settings</h1>
+          <p className="text-gray-500 text-sm">Customize the addon settings to suit your needs.</p>
       </div>
+      <Separator className="my-6"/>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {integrations.map((integration) => (
           <IntegrationCard
