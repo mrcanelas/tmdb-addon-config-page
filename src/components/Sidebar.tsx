@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { useLocation, Link } from "react-router-dom";
 import { KoFiDialog } from "react-kofi";
 import "react-kofi/dist/styles.css";
+import "@/styles/kofi-dialog.css";
 
 const menuItems = [
   { icon: Home, label: "Home", path: "/" },
