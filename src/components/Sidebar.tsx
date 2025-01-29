@@ -2,7 +2,6 @@ import { Home, Grid, Network, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation, Link } from "react-router-dom";
 import { KoFiDialog } from "react-kofi";
-import { useState } from "react";
 import "react-kofi/dist/styles.css";
 
 const menuItems = [
@@ -12,13 +11,13 @@ const menuItems = [
   { icon: Settings, label: "Others", path: "/others" },
 ];
 
-export function Sidebar() {
-  const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
+interface SidebarProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
+  const location = useLocation();
 
   return (
     <>
