@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import { Sidebar } from "./components/Sidebar";
 import { Header } from "./components/Header";
 import { useState } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const queryClient = new QueryClient();
 
@@ -24,9 +25,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
-      <div className="flex-1">
+      <div className="flex-1 flex flex-col h-screen">
         <Header isOpen={isOpen} toggleSidebar={toggleSidebar} />
-        {children}
+        <ScrollArea className="flex-1">
+          {children}
+        </ScrollArea>
       </div>
     </div>
   );
