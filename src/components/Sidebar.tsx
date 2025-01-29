@@ -1,4 +1,4 @@
-import { Home, Grid, Network, Settings } from "lucide-react";
+import { Home, GalleryVerticalEnd, Puzzle, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation, Link } from "react-router-dom";
 import { KoFiDialog } from "react-kofi";
@@ -6,8 +6,8 @@ import "react-kofi/dist/styles.css";
 
 const menuItems = [
   { icon: Home, label: "Home", path: "/" },
-  { icon: Grid, label: "Catalogs", path: "/catalogs" },
-  { icon: Network, label: "Integrations", path: "/integrations" },
+  { icon: GalleryVerticalEnd, label: "Catalogs", path: "/catalogs" },
+  { icon: Puzzle, label: "Integrations", path: "/integrations" },
   { icon: Settings, label: "Others", path: "/others" },
 ];
 
