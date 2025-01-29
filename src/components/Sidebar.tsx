@@ -32,7 +32,7 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
         <div className="flex flex-col min-h-screen py-6 space-y-10">
           <div className="flex items-center gap-2 mx-6 mt-10">
             <img
-              src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a82bb2cd95f6c.svg"
+              src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
               alt="TMDB Logo"
               className="h-8 w-auto"
             />
@@ -46,7 +46,8 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
                     onClick={() => setIsOpen(false)}
                     className={cn(
                       "flex items-center px-6 py-2 mt-4 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100",
-                      location.pathname === item.path && "bg-gray-700 text-gray-100"
+                      location.pathname === item.path &&
+                        "bg-gray-700 text-gray-100"
                     )}
                   >
                     <item.icon className="w-5 h-5 mr-2" />
