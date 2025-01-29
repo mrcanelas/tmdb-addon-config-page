@@ -1,4 +1,4 @@
-import { Home, Grid, Network, Settings, Menu, X } from "lucide-react";
+import { Home, Grid, Network, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation, Link } from "react-router-dom";
 import { KoFiDialog } from "react-kofi";
@@ -22,14 +22,6 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={toggleSidebar}
-        className="fixed top-4 left-4 z-50 p-2 rounded-md md:hidden text-white bg-[#0d253f] hover:bg-[#0d253f]/90"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
       {/* Sidebar */}
       <div
         className={cn(

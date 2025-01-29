@@ -10,18 +10,27 @@ import Others from "./pages/Others";
 import NotFound from "./pages/NotFound";
 import { Sidebar } from "./components/Sidebar";
 import { Header } from "./components/Header";
+import { useState } from "react";
 
 const queryClient = new QueryClient();
 
-const Layout = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex min-h-screen bg-gray-50">
-    <Sidebar />
-    <div className="flex-1">
-      <Header />
-      {children}
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="flex min-h-screen bg-gray-50">
+      <Sidebar />
+      <div className="flex-1">
+        <Header isOpen={isOpen} toggleSidebar={toggleSidebar} />
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
