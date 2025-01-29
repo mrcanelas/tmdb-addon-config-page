@@ -1,4 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { IntegrationCard } from "@/components/IntegrationCard";
 
 const Configuration = () => {
   return (
