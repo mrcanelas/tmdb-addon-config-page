@@ -8,6 +8,7 @@ const Integrations = () => {
         {integrations.map((integration) => (
           <IntegrationCard
             key={integration.id}
+            id={integration.id}
             name={integration.name}
             icon={integration.icon}
             description={integration.description}

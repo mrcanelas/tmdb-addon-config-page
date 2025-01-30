@@ -6,524 +6,122 @@ export interface ExtraOption {
 
 export interface Catalog {
   id: string;
-  type: "movie" | "series";
   name: string;
-  pageSize: number;
-  extra: ExtraOption[];
-  extraSupported: string[];
-  extraRequired?: string[];
+  type: "movie" | "series";
+  extraRequired?: boolean;
 }
 
-export const catalogs: Catalog[] = [
-  {
-    id: "tmdb.top",
-    type: "movie",
-    name: "Popular",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Animação",
-          "Aventura",
-          "Ação",
-          "Cinema TV",
-          "Comédia",
-          "Crime",
-          "Documentário",
-          "Drama",
-          "Família",
-          "Fantasia",
-          "Faroeste",
-          "Ficção científica",
-          "Guerra",
-          "História",
-          "Mistério",
-          "Música",
-          "Romance",
-          "Terror",
-          "Thriller"
-        ]
-      },
-      {
-        name: "search"
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip",
-      "search"
-    ]
-  },
-  {
-    id: "tmdb.year",
-    type: "movie",
-    name: "Ano",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "2025",
-          "2024",
-          "2023",
-          "2022",
-          "2021",
-          "2020",
-          "2019",
-          "2018",
-          "2017",
-          "2016",
-          "2015",
-          "2014",
-          "2013",
-          "2012",
-          "2011",
-          "2010",
-          "2009",
-          "2008",
-          "2007",
-          "2006",
-          "2005"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.language",
-    type: "movie",
-    name: "Idioma",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Portuguese",
-          "Afrikaans",
-          "Albanian",
-          "Arabic",
-          "Basque",
-          "Belarusian",
-          "Bengali",
-          "Breton",
-          "Bulgarian",
-          "Catalan",
-          "Chamorro",
-          "Croatian",
-          "Czech",
-          "Danish",
-          "Dutch",
-          "English",
-          "Esperanto",
-          "Estonian",
-          "Finnish",
-          "French",
-          "Gaelic",
-          "Galician",
-          "Georgian",
-          "German",
-          "Greek",
-          "Hebrew",
-          "Hindi",
-          "Hungarian",
-          "Indonesian",
-          "Irish",
-          "Italian",
-          "Japanese",
-          "Kannada",
-          "Kazakh",
-          "Kirghiz",
-          "Korean",
-          "Kurdish",
-          "Latvian",
-          "Lithuanian",
-          "Malay",
-          "Malayalam",
-          "Mandarin",
-          "Marathi",
-          "Norwegian",
-          "Norwegian Bokmål",
-          "Persian",
-          "Polish",
-          "Punjabi",
-          "Romanian",
-          "Russian",
-          "Serbian",
-          "Sinhalese",
-          "Slovak",
-          "Slovenian",
-          "Somali",
-          "Spanish",
-          "Swahili",
-          "Swedish",
-          "Tagalog",
-          "Tamil",
-          "Telugu",
-          "Thai",
-          "Turkish",
-          "Ukrainian",
-          "Urdu",
-          "Uzbek",
-          "Vietnamese",
-          "Welsh",
-          "Zulu"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.trending",
-    type: "movie",
-    name: "Tendências",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Day",
-          "Week"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.favorites",
-    type: "movie",
-    name: "Favoritos",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Top"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.watchlist",
-    type: "movie",
-    name: "Interesses",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Top"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.top",
-    type: "series",
-    name: "Popular",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Action & Adventure",
-          "Animação",
-          "Comédia",
-          "Crime",
-          "Documentário",
-          "Drama",
-          "Família",
-          "Faroeste",
-          "Kids",
-          "Mistério",
-          "News",
-          "Reality",
-          "Sci-Fi & Fantasy",
-          "Soap",
-          "Talk",
-          "War & Politics"
-        ]
-      },
-      {
-        name: "search"
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip",
-      "search"
-    ]
-  },
-  {
-    id: "tmdb.year",
-    type: "series",
-    name: "Ano",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "2025",
-          "2024",
-          "2023",
-          "2022",
-          "2021",
-          "2020",
-          "2019",
-          "2018",
-          "2017",
-          "2016",
-          "2015",
-          "2014",
-          "2013",
-          "2012",
-          "2011",
-          "2010",
-          "2009",
-          "2008",
-          "2007",
-          "2006",
-          "2005"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.language",
-    type: "series",
-    name: "Idioma",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Portuguese",
-          "Afrikaans",
-          "Albanian",
-          "Arabic",
-          "Basque",
-          "Belarusian",
-          "Bengali",
-          "Breton",
-          "Bulgarian",
-          "Catalan",
-          "Chamorro",
-          "Croatian",
-          "Czech",
-          "Danish",
-          "Dutch",
-          "English",
-          "Esperanto",
-          "Estonian",
-          "Finnish",
-          "French",
-          "Gaelic",
-          "Galician",
-          "Georgian",
-          "German",
-          "Greek",
-          "Hebrew",
-          "Hindi",
-          "Hungarian",
-          "Indonesian",
-          "Irish",
-          "Italian",
-          "Japanese",
-          "Kannada",
-          "Kazakh",
-          "Kirghiz",
-          "Korean",
-          "Kurdish",
-          "Latvian",
-          "Lithuanian",
-          "Malay",
-          "Malayalam",
-          "Mandarin",
-          "Marathi",
-          "Norwegian",
-          "Norwegian Bokmål",
-          "Persian",
-          "Polish",
-          "Punjabi",
-          "Romanian",
-          "Russian",
-          "Serbian",
-          "Sinhalese",
-          "Slovak",
-          "Slovenian",
-          "Somali",
-          "Spanish",
-          "Swahili",
-          "Swedish",
-          "Tagalog",
-          "Tamil",
-          "Telugu",
-          "Thai",
-          "Turkish",
-          "Ukrainian",
-          "Urdu",
-          "Uzbek",
-          "Vietnamese",
-          "Welsh",
-          "Zulu"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.trending",
-    type: "series",
-    name: "Tendências",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Day",
-          "Week"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.favorites",
-    type: "series",
-    name: "Favoritos",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Top"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  },
-  {
-    id: "tmdb.watchlist",
-    type: "series",
-    name: "Interesses",
-    pageSize: 20,
-    extra: [
-      {
-        name: "genre",
-        options: [
-          "Top"
-        ],
-        isRequired: true
-      },
-      {
-        name: "skip"
-      }
-    ],
-    extraSupported: [
-      "genre",
-      "skip"
-    ],
-    extraRequired: [
-      "genre"
-    ]
-  }
-]; 
+// Catálogos base que sempre estarão disponíveis
+export const baseCatalogs: Catalog[] = [
+  { id: "tmdb.top", name: "Popular", type: "movie" },
+  { id: "tmdb.top", name: "Popular", type: "series" },
+  { id: "tmdb.year", name: "Year", type: "movie" },
+  { id: "tmdb.year", name: "Year", type: "series" },
+  { id: "tmdb.language", name: "Language", type: "movie" },
+  { id: "tmdb.language", name: "Language", type: "series" },
+  { id: "tmdb.trending", name: "Trending", type: "movie" },
+  { id: "tmdb.trending", name: "Trending", type: "series" },
+];
+
+// Catálogos que requerem autenticação
+export const authCatalogs: Catalog[] = [
+  { id: "tmdb.favorites", name: "Favorites", type: "movie" },
+  { id: "tmdb.favorites", name: "Favorites", type: "series" },
+  { id: "tmdb.watchlist", name: "Watchlist", type: "movie" },
+  { id: "tmdb.watchlist", name: "Watchlist", type: "series" },
+];
+
+// Catálogos de streaming
+export const streamingCatalogs: Record<string, Catalog[]> = {
+  nfx: [
+    { id: "streaming.nfx", name: "Netflix", type: "movie" },
+    { id: "streaming.nfx", name: "Netflix", type: "series" }
+  ],
+  nfk: [
+    { id: "streaming.nfk", name: "Netflix Kids", type: "movie" },
+    { id: "streaming.nfk", name: "Netflix Kids", type: "series" }
+  ],
+  hbm: [
+    { id: "streaming.hbm", name: "HBO Max", type: "movie" },
+    { id: "streaming.hbm", name: "HBO Max", type: "series" }
+  ],
+  dnp: [
+    { id: "streaming.dnp", name: "Disney+", type: "movie" },
+    { id: "streaming.dnp", name: "Disney+", type: "series" }
+  ],
+  amp: [
+    { id: "streaming.amp", name: "Prime Video", type: "movie" },
+    { id: "streaming.amp", name: "Prime Video", type: "series" }
+  ],
+  atp: [
+    { id: "streaming.atp", name: "Apple TV+", type: "movie" },
+    { id: "streaming.atp", name: "Apple TV+", type: "series" }
+  ],
+  pmp: [
+    { id: "streaming.pmp", name: "Paramount+", type: "movie" },
+    { id: "streaming.pmp", name: "Paramount+", type: "series" }
+  ],
+  pcp: [
+    { id: "streaming.pcp", name: "Peacock Premium", type: "movie" },
+    { id: "streaming.pcp", name: "Peacock Premium", type: "series" }
+  ],
+  hlu: [
+    { id: "streaming.hlu", name: "Hulu", type: "movie" },
+    { id: "streaming.hlu", name: "Hulu", type: "series" }
+  ],
+  cts: [
+    { id: "streaming.cts", name: "Curiosity Stream", type: "movie" },
+    { id: "streaming.cts", name: "Curiosity Stream", type: "series" }
+  ],
+  mgl: [
+    { id: "streaming.mgl", name: "MagellanTV", type: "movie" },
+    { id: "streaming.mgl", name: "MagellanTV", type: "series" }
+  ],
+  cru: [
+    { id: "streaming.cru", name: "Crunchyroll", type: "movie" },
+    { id: "streaming.cru", name: "Crunchyroll", type: "series" }
+  ],
+  hay: [
+    { id: "streaming.hay", name: "Hayu", type: "series" }
+  ],
+  clv: [
+    { id: "streaming.clv", name: "Clarovideo", type: "movie" },
+    { id: "streaming.clv", name: "Clarovideo", type: "series" }
+  ],
+  gop: [
+    { id: "streaming.gop", name: "Globoplay", type: "movie" },
+    { id: "streaming.gop", name: "Globoplay", type: "series" }
+  ],
+  hst: [
+    { id: "streaming.hst", name: "Hotstar", type: "movie" },
+    { id: "streaming.hst", name: "Hotstar", type: "series" }
+  ],
+  zee: [
+    { id: "streaming.zee", name: "Zee5", type: "movie" },
+    { id: "streaming.zee", name: "Zee5", type: "series" }
+  ],
+  nlz: [
+    { id: "streaming.nlz", name: "NLZIET", type: "movie" },
+    { id: "streaming.nlz", name: "NLZIET", type: "series" }
+  ],
+  vil: [
+    { id: "streaming.vil", name: "Videoland", type: "movie" },
+    { id: "streaming.vil", name: "Videoland", type: "series" }
+  ],
+  sst: [
+    { id: "streaming.sst", name: "SkyShowtime", type: "movie" },
+    { id: "streaming.sst", name: "SkyShowtime", type: "series" }
+  ],
+  blv: [
+    { id: "streaming.blv", name: "BluTV", type: "movie" },
+    { id: "streaming.blv", name: "BluTV", type: "series" }
+  ],
+  cpd: [
+    { id: "streaming.cpd", name: "Canal+", type: "movie" },
+    { id: "streaming.cpd", name: "Canal+", type: "series" }
+  ],
+  dpe: [
+    { id: "streaming.dpe", name: "Discovery+", type: "movie" },
+    { id: "streaming.dpe", name: "Discovery+", type: "series" }
+  ]
+}; 

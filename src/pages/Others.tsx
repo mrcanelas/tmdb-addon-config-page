@@ -1,11 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
-import { useState } from "react";
+import { useConfig } from "@/contexts/ConfigContext";
 
 const Others = () => {
-  const [adultContent, setAdultContent] = useState(false);
-  const [provideImdbId, setProvideImdbId] = useState(false);
-  const [tmdbPrefix, setTmdbPrefix] = useState(false);
+  const { includeAdult, setIncludeAdult } = useConfig();
+  const { provideImdbId, setProvideImdbId } = useConfig();
+  const { tmdbPrefix, setTmdbPrefix } = useConfig();
 
   return (
     <main className="p-12">
@@ -20,21 +20,21 @@ const Others = () => {
           <div className="space-y-0.5">
             <h1 className="text-sm font-semibold mb-1">Enable adult content</h1>
             <p className="text-gray-500 text-sm">
-              Receive emails about new products, features, and more.
+              Include adult content in search results.
             </p>
           </div>
           <Switch
-            checked={adultContent}
-            onCheckedChange={() => setAdultContent(!adultContent)}
+            checked={includeAdult}
+            onCheckedChange={() => setIncludeAdult(!includeAdult)}
           />
         </Card>
         <Card className="flex flex-row items-center justify-between p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer">
           <div className="space-y-0.5">
             <h1 className="text-sm font-semibold mb-1">
-              Provide metadata for IMDBId
+              Provide IMDB metadata
             </h1>
             <p className="text-gray-500 text-sm">
-              Receive emails about new products, features, and more.
+              Include IMDB IDs in metadata for better integration with other addons.
             </p>
           </div>
           <Switch
@@ -45,10 +45,10 @@ const Others = () => {
         <Card className="flex flex-row items-center justify-between p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer">
           <div className="space-y-0.5">
             <h1 className="text-sm font-semibold mb-1">
-              Use TMDB prefix in catalogs
+              Use TMDB prefix
             </h1>
             <p className="text-gray-500 text-sm">
-              Receive emails about new products, features, and more.
+              Add "TMDB -" prefix to all catalog names for better organization.
             </p>
           </div>
           <Switch
