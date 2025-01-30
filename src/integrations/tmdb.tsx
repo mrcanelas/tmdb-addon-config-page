@@ -13,7 +13,7 @@ export default function TMDB() {
   const handleRequestToken = useCallback(async (requestToken: string) => {
     setIsLoading(true);
     try {
-      const response = await fetch(`/session_id?request_token=${requestToken}`);
+      const response = await fetch(`https://94c8cb9f702d-tmdb-addon.baby-beamup.club/session_id?request_token=${requestToken}`);
       if (!response.ok) throw new Error('Failed to create session');
       
       const sessionId = await response.text();
@@ -44,7 +44,7 @@ export default function TMDB() {
 
     try {
       const uuid = crypto.randomUUID();
-      const response = await fetch(`/request_token?${uuid}`);
+      const response = await fetch(`https://94c8cb9f702d-tmdb-addon.baby-beamup.club/request_token?${uuid}`);
       if (!response.ok) throw new Error('Failed to get request token');
       
       const requestToken = await response.text();

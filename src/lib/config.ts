@@ -14,7 +14,7 @@ interface AddonConfig {
 }
 
 export function generateAddonUrl(config: AddonConfig): string {
-  const baseUrl = window.location.origin;
+  const baseUrl = 'https://94c8cb9f702d-tmdb-addon.baby-beamup.club';
   
   // Criar um novo objeto apenas com os valores necessários
   const configToEncode = {
