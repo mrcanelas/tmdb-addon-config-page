@@ -6,6 +6,7 @@ import { useConfig } from "@/contexts/ConfigContext";
 import { integrations } from "@/data/integrations";
 import { baseCatalogs, authCatalogs, streamingCatalogs, type Catalog } from "@/data/catalogs";
 import { type CatalogConfig } from "@/contexts/config";
+import { streamingServices } from "@/data/streamings";
 
 const getIntegrationInfo = (catalogId: string) => {
   const [integrationId] = catalogId.split(".");
@@ -28,6 +29,12 @@ const CatalogCard = ({ catalog, config, onChange }: {
   const showInHome = config?.showInHome ?? true;
   const integration = getIntegrationInfo(catalog.id);
 
+  if(integration.id === "streaming") {
+    const streamindId = catalog.id.split(".")[1];
+    const foundService = streamingServices.find(s => s.id === streamindId);
+    integration.icon = foundService?.icon || integration.icon;
+  };
+
   const handleEnableChange = (checked: boolean) => {
     onChange(checked, checked ? showInHome : false);
   };
@@ -42,16 +49,16 @@ const CatalogCard = ({ catalog, config, onChange }: {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="space-y-1">
           <h1 className="font-semibold flex items-center gap-2">
-              <div className="w-8 h-8 flex items-center justify-center bg-gray-50 rounded-md p-1">
+              <div className="w-8 h-8 flex items-center justify-center bg-gray-50 rounded-md">
                   <img 
                   src={integration.icon} 
                   alt={`${integration.name} logo`} 
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain rounded-md"
                   />
               </div>
               {catalog.name}
               <Badge variant="outline">
-                {catalog.type === "movie" ? "Filme" : "Série"}
+                {catalog.type === "movie" ? "Movie" : "Series"}
               </Badge>
             </h1>
           </div>
@@ -170,13 +177,13 @@ const Catalogs = () => {
   }, [allCatalogs.length]);
 
   return (
-    <main className="p-12">
+    <main className="md:p-12 px-2 py-12">
       <div className="flex flex-col mb-6">
         <h1 className="text-xl font-semibold mb-1">Catalogs</h1>
         <p className="text-gray-500 text-sm">Manage the catalogs available in the addon.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <CatalogColumn 
           title="Movies" 
           catalogs={movieCatalogs} 
