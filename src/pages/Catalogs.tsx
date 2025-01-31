@@ -27,13 +27,14 @@ const CatalogCard = ({ catalog, config, onChange }: {
 }) => {
   const isEnabled = config?.enabled ?? true;
   const showInHome = config?.showInHome ?? true;
-  const integration = getIntegrationInfo(catalog.id);
+  let integration = getIntegrationInfo(catalog.id);
 
-  if(integration.id === "streaming") {
+  if (integration.id === "streaming") {
     const streamindId = catalog.id.split(".")[1];
     const foundService = streamingServices.find(s => s.id === streamindId);
-    integration.icon = foundService?.icon || integration.icon;
-  };
+    
+    integration = { ...integration, icon: foundService?.icon || integration.icon };
+  }
 
   const handleEnableChange = (checked: boolean) => {
     onChange(checked, checked ? showInHome : false);
