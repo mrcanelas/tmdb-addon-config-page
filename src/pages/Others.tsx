@@ -8,7 +8,7 @@ const Others = () => {
   const { tmdbPrefix, setTmdbPrefix } = useConfig();
 
   return (
-    <main className="p-12">
+    <main className="md:p-12 px-2 py-12">
       <div className="flex flex-col mb-6">
         <h1 className="text-xl font-semibold mb-1">Addon Settings</h1>
         <p className="text-gray-500 text-sm">
