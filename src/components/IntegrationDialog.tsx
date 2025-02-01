@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
-import DefaultIntegration from "./DefaultIntegration";
 
 interface IntegrationDialogProps {
   id: string;

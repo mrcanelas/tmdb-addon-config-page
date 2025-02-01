@@ -1,10 +1,9 @@
+import MultiActionButton from "@/components/MultiActionButton";
 import { Home, GalleryVerticalEnd, Puzzle, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { KoFiDialog } from "react-kofi";
 import "react-kofi/dist/styles.css";
 import "@/styles/kofi-dialog.css";
-import { generateAddonUrl } from "@/lib/config";
-import { useConfig } from "@/contexts/ConfigContext";
 
 type Page = "home" | "catalogs" | "integrations" | "others";
 
@@ -23,23 +22,6 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, setIsOpen, currentPage, setCurrentPage }: SidebarProps) {
-  const config = useConfig();
-
-  const handleInstall = () => {
-    const url = generateAddonUrl({
-      rpdbkey: config.rpdbkey,
-      includeAdult: config.includeAdult,
-      provideImdbId: config.provideImdbId,
-      tmdbPrefix: config.tmdbPrefix,
-      language: config.language,
-      sessionId: config.sessionId,
-      catalogs: config.catalogs
-    });
-
-    const stremioUrl = url.replace(/^https?:\/\//, 'stremio://');
-    window.location.href = stremioUrl;
-  };
-
   return (
     <>
       <div
@@ -81,13 +63,8 @@ export function Sidebar({ isOpen, setIsOpen, currentPage, setCurrentPage }: Side
             </ul>
           </nav>
 
-          <div className="p-6 grid place-items-center">
-            <button 
-              className="w-full mb-3 bg-primary text-white rounded-lg py-2.5 px-4 hover:bg-primary/90 transition-colors"
-              onClick={handleInstall}
-            >
-              Install
-            </button>
+          <div className="p-6 grid place-items-center space-y-3">
+            <MultiActionButton />
             <KoFiDialog
               color="#01b4e4"
               textColor="#fff"
